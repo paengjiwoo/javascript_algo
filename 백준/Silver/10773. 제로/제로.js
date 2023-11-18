@@ -1,20 +1,14 @@
-const fs = require("fs");
-const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
+const K = Number(input[0])
 
-input.shift();
-
-let ansArray = []
-for (let i=0; i < input.length; i++) {
-  if (!Number(input[i])) {
-    ansArray.pop()
+let nums = new Array()
+for (let i = 1; i <= K; i++) {
+  if (Number(input[i]) !== 0) {
+    nums.push(input[i])
   } else {
-    ansArray.push(Number(input[i]))
+    nums.pop()
   }
 }
-
 let ans = 0
-ansArray.forEach((num) => {
-  ans += num
-})
-
+nums.forEach(num => ans += Number(num))
 console.log(ans)
