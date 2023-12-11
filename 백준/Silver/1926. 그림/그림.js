@@ -1,5 +1,4 @@
 const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
-
 const [n, m] = input[0].split(' ')
 let board = input.slice(1)
 for (let b = 0; b < n; b++) {
@@ -15,7 +14,7 @@ const art = (i, j) => {
   let w = 1
   board[i][j] = "0"
   while (q.length > 0) {
-    const [[y, x]] = q.splice(0, 1)
+    const [y, x] = q.shift()
     for (const dir of dirs) {
       const ny = y + dir[0]
       const nx = x + dir[1]
