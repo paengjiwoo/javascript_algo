@@ -1,4 +1,4 @@
-const input = require('fs').readFileSync('/dev/stdin').toString().trim().split(' ');
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split(' ')
 const [A, B] = input.map(num => Number(num))
 let set = new Set()
 for (let i = -1000; i <= 1000; i++) {
@@ -7,7 +7,8 @@ for (let i = -1000; i <= 1000; i++) {
   }
 }
 const ans = Array.from(set).sort((a, b) => a - b)
-if (ans.length === 1) {
+const sorted = ans.sort((a, b) => a - b)
+if (sorted.length === 1) {
   const [first] = ans
   console.log(first)
 } else {
