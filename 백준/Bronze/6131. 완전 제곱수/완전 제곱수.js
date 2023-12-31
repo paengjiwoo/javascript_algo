@@ -2,15 +2,9 @@ const input = require('fs').readFileSync('/dev/stdin').toString().trim()
 const N = parseInt(input)
 let ans = 0
 
-for (let a = 2; a <= 500; a++) {
-  if (a * a - (a - 1) * (a - 1) > N) { 
-    break
-  } else {
-    for (let b = 1; b < a; b++) {
-      if (a * a - b * b === N) {
-        ans += 1    
-      }
-    }
+for (let b = 1; b <= 500; b++) {
+  if (Number.isInteger(Math.sqrt(Math.pow(b, 2) + N))) {
+    ans++
   }
 }
 console.log(ans)
