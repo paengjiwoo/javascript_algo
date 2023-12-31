@@ -1,12 +1,11 @@
 const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
-const mushrooms = input.map(num => Number(num))
+const arr = input.map(Number)
 let sum = 0
-
-for (const mush of mushrooms) {
-  sum += mush
+for (const m of arr) {
+  sum += m
   if (sum >= 100) {
-    if (sum - 100 > 100 - (sum - mush)) {
-      sum -= mush
+    if (100 - (sum - m) < sum - 100) {
+      sum -= m
       break
     }
   }
