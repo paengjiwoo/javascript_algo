@@ -1,15 +1,16 @@
 const input = require('fs').readFileSync('/dev/stdin').toString().trim().split(' ');
 let N = parseInt(input[0])
-let length = Math.sqrt(N) + 1
-const arr = []
+let weight = 2
+let jewel = []
 
-for (let i = 2; i <= length; i++) {
-  while (N % i === 0) {
-    arr.push(i)
-    N = N / i
+while (N > 1 && weight <= Math.sqrt(N) + 1) {
+  while (!(N % weight)) {
+    N = N / weight
+    jewel.push(weight)
   }
+  weight++;
 }
-if (N !== 1) arr.push(N)
+if (N !== 1) jewel.push(N)
 
-console.log(arr.length)
-console.log(arr.join(' '))
+console.log(jewel.length)
+console.log(jewel.join(' '))
