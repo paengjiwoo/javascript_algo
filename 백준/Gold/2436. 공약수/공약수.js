@@ -1,7 +1,6 @@
 const input = require('fs').readFileSync('/dev/stdin').toString().trim().split(' ');
 const [a, b] = input.map(Number)
 
-// 유클리드 호제법
 function GCD(x, y) {
   if (!(x % y)) {
     return y
@@ -10,8 +9,10 @@ function GCD(x, y) {
 }
 
 for (let i = Math.floor(Math.sqrt(b / a)); i > 0; i--) {
-  let j = (b / a) / i
-  if (GCD(i, j) === 1 && !((b / a) % i)) {
+  if (((b / a) % i)) continue
+  const j = (b / a) / i
+  if (i > j) break
+  if (GCD(i, j) === 1) {
     console.log(i * a, j * a)
     break
   }
