@@ -15,8 +15,8 @@ for (let y1 = 1; y1 <= N; y1++) {
   for (let x1 = 1; x1 <= M; x1++) {
     for (let y2 = y1; y2 <= N; y2++) {
       for (let x2 = x1; x2 <= M; x2++) {
-        if (ans < prefix[y2][x2] - prefix[y1 - 1][x2] - prefix[y2][x1 - 1] + prefix[y1 - 1][x1 - 1])
-        ans = prefix[y2][x2] - prefix[y1 - 1][x2] - prefix[y2][x1 - 1] + prefix[y1 - 1][x1 - 1]
+        const curr = prefix[y2][x2] - prefix[y1 - 1][x2] - prefix[y2][x1 - 1] + prefix[y1 - 1][x1 - 1]
+        if (ans < curr) ans = curr
       }
     }
   }
