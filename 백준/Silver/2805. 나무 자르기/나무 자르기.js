@@ -9,13 +9,13 @@ let left = 0
 let right = Math.max(...trees)
 while (left <= right) {
   total = 0
-  mid = Math.floor((left + right) / 2)
-  for (const tree of trees) {
-    if (tree > mid) total += tree - mid 
+  mid = parseInt((left + right) / 2)
+  for (let i = 0; i < N; i++) {
+    if (trees[i] > mid) total += trees[i] - mid 
   }
 
   if (total < M) right = mid - 1
-  if (total >= M) {
+  else if (total >= M) {
     ans = mid
     left = mid + 1
   }
