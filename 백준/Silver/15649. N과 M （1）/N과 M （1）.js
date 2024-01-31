@@ -1,9 +1,10 @@
 const input = require('fs').readFileSync('/dev/stdin').toString().trim();
 const [N, M] = input.split(' ').map(Number)
 
+let res = []
 function permutation(ans, cnt, checked) {
   if (cnt === M) {
-    console.log(ans.join(' '))
+    res.push(ans.join(' '))
     return
   }
 
@@ -21,3 +22,5 @@ function permutation(ans, cnt, checked) {
 
 let checked = Array.from({length: N + 1}, () => 0)
 permutation([], 0, checked)
+
+console.log(res.join('\n'))
