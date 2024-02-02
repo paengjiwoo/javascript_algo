@@ -18,6 +18,4 @@ function solve(str, cnt, idx) {
   }
 }
 solve('', 0, 0)
-for (let i = 0; i < ans.length; i++) {
-  console.log(ans[i])
-}
+console.log(ans.join('\n'))
