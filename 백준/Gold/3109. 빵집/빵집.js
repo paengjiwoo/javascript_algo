@@ -14,8 +14,6 @@ function dfs(y, x) {
     if (ny >= 0 && ny < R && nx >= 0 && nx < C) {
       if (!visited[ny][nx] && input[ny][nx] === ".") {
         // 이미 방문한 경로 표시
-        // 가장 위에 위치한 경로부터 체크하므로 방문 경로 표시는 
-        // 이후 시행에 영향을 주지 않습니다
         visited[ny][nx] = 1
         // 빵집에 도착 가능하면 true 리턴
         if (nx === C - 1) return true;
