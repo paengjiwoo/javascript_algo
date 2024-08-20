@@ -18,8 +18,24 @@ function checkFomula(N, cnt, str) {
 
 function checkZero(str) {
   const cal = str.replaceAll(' ', '');
-  let calFunction = new Function(`return ${cal}`);
-  return calFunction();
+  const numbers = cal.split(/[-+]/).map(Number);
+  const operators = cal.split(/[0-9]/);
+
+  let result = numbers[0];
+  let idx = 1;
+  for (let i = 0; i < operators.length; i++) {
+    if (operators[i]) {
+      if (operators[i] === '+') {
+        result += numbers[idx];
+        idx++;
+      } else if (operators[i] === '-') {
+        result -= numbers[idx];
+        idx++;
+      }
+    }
+  }
+
+  return result;
 }
 
 for (let t = 1; t <= T; t++) {
