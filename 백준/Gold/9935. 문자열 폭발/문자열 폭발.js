@@ -1,16 +1,16 @@
-const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
-let str = input[0];
-let bomb = input[1];
-let bomLen = bomb.length;
-let stack = [];
-let top = 0;
+const fs = require("fs");
+const input = fs.readFileSync('/dev/stdin').toString().trim().split("\n");
 
-for(let i=0;i<str.length;i++) {
+const stack = [];
+const str = input[0];
+const bomb = input[1];
+const len = bomb.length;
+
+for (let i = 0; i < str.length; i++) {
   stack.push(str[i]);
-  top = str[i]
-  if(top === bomb[bomLen-1]) {
-    let last = stack.slice(-bomLen);
-    if(last.join('') === bomb) stack.splice(-bomLen)
+  if (bomb[len - 1] === str[i]) {
+    const sub = stack.slice(-len);
+    if (sub.join('') === bomb) stack.splice(-len);
   }
 }
-console.log(stack.length? stack.join(''):'FRULA');
+console.log(stack.length ? stack.join('') : 'FRULA');
