@@ -23,7 +23,7 @@ function checkATK(maxHP) {
     }
   }
   
-  return playerHP > 0;
+  return playerHP > 0n;
 };
 
 let start = 1n;
